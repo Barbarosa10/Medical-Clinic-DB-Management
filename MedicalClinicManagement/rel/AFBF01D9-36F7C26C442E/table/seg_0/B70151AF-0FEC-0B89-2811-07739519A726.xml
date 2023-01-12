@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B70151AF-0FEC-0B89-2811-07739519A726" name="Service">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>F9954724-FC5E-06A7-2858-EAB77A27B95F</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Service_ID" id="0E9DA305-20EE-AF6F-F9E1-1B3D9FC4292C">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>6894DFE5-09F9-E2F0-53C5-87750A5C30E8</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="75D939B1-5C6D-7F0D-6972-0E153EA9B72D">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>4290F5C0-3DDD-77C4-2104-17F0236F87D4</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<constraintName>service_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(name, &apos;^([A-Za-z_  ]+)&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="price" id="2C0E17F5-BBB4-C1B9-BE61-8154F40007CD">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>D5157B6F-40DD-92E7-D45C-4033B49D40CD</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EF6693F0-E1F6-3708-7B7D-7A1E6AED605F" name="Service_PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>D8BB58D9-9A84-A646-169D-C71B7E65C52C</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E9DA305-20EE-AF6F-F9E1-1B3D9FC4292C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5965A2B7-550D-508D-CB25-87A7EE62E309" name="Service_name_UN">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>1FE2DBCD-1C68-03BD-DD51-4380D5E37A2D</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="75D939B1-5C6D-7F0D-6972-0E153EA9B72D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

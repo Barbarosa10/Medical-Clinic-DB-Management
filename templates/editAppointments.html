@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Duciuc Danut">
+    <meta name="description" content="Medical Clinic DataBase Management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Clinic DB Management</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
+    <style>
+        html {
+            /* background: black; */
+            background-image: url("/static/image/edit_background.jpg");
+        }
+
+        body {
+            margin: 0;
+
+        }
+
+        #animated-title {
+            font-size: 60px;
+            color: crimson;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        label {
+            font-size: 50px;
+            color: #32bcee;
+        }
+
+        select {
+            font-size: 30px;
+        }
+
+        input {
+            font-size: 30px;
+        }
+
+        .edit-form {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+
+        }
+
+        button {
+            font-size: 40px;
+            background-color: transparent;
+            color: crimson;
+
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .cancelBtn{
+            font-size: 40px;
+            background-color: transparent;
+            color: crimson;
+
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .cancelBtn:hover{
+            background-color: crimson;
+            color: black;
+        }
+        button:hover {
+            background-color: crimson;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="animated-title"><p>Please edit appointment or cancel!</p></div>
+    </header>
+    <div style="padding-top: 30px;" class="edit-form" id="edit-form">
+        <form class="form_container" id="edit-appointment" method="post" action="/editAppointment">
+            
+            <p>
+                <input type="hidden" name="appointment_id" id="appointment_id" value="{{appointment_id}}"  required>
+            </p>
+            <p>
+                <label style="color: crimson;" for="patient">
+                    PATIENT:
+                </label>
+            </p>
+            <p>
+                <label for="patient_last_name">
+                    <span class="tab"></span>
+                    <span class="required" style="color: red">*</span>
+                    Last Name:
+                </label>
+                <input type="text" name="patient_last_name" id="patient_last_name" value="{{patient_last_name}}" maxlength="30" title="Patient Last Name" readonly required>
+            </p>
+            <p>
+                <label for="patient_first_name">
+                    <span class="tab"></span>
+                    <span class="required" style="color: red">*</span>
+                    First Name:
+                </label>
+                <input type="text" name="patient_first_name" id="patient_first_name" value="{{patient_first_name}}" maxlength="30" title="Patient First Name" readonly
+                    required>
+            </p>
+            <p>
+                <label for="cnp">
+                    <span class="tab"></span>
+                    <span class="required" style="color: red">*</span>
+                    CNP:
+                </label>
+                <input type = "text" name="cnp" id="cnp" value="{{cnp}}" pattern="^[1-9]\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])(0[1-9]|[1-4]\d|5[0-2]|99)(00[1-9]|0[1-9]\d|[1-9]\d\d)\d$"
+                    maxlength="13" minlength="13" title="CNP" readonly required>
+            </p>
+            <p>
+                <label style="color: crimson;" for="patient">
+                    DOCTOR:
+                </label>
+            </p>
+            <p>
+                <label for="doctor_last_name">
+                    <span class="tab"></span>
+                    <span class="required" style="color: red">*</span>
+                    Last Name:
+                </label>
+                <input type="text" name="doctor_last_name" id="doctor_last_name" value="{{doctor_last_name}}" maxlength="30" title="Doctor Last Name" required>
+            </p>
+            <p>
+                <label for="doctor_first_name">
+                    <span class="tab"></span>
+                    <span class="required" style="color: red">*</span>
+                    First Name:
+                </label>
+                <input type="text" name="doctor_first_name" id="doctor_first_name" value="{{doctor_first_name}}" maxlength="30" title="Doctor First Name"
+                    required>
+            </p>
+            <p>
+                <label for="service_name">
+                    <span class="required" style="color: red">*</span>
+                    Service:
+                </label>
+                <select name="service_name" id="service_name" title="Service">
+                    {% for service in services %}
+                    <option name="service_name" value="{{service['service_id']}}">
+                        {{service['service_name']}}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p>
+                <label for="start_date">
+                    <span class="required" style="color: red">*</span>
+                    Start Date:
+                </label>
+                <input type="date" name="start_date" id="start_date" value="{{start_date}}" maxlength="10" title="Start Date" required>
+
+                <label for="start_time">
+                    ,
+                </label>
+                <input  type="number"  name="start_time_h" id="time"  title="Start Time Hour"  min="0" max="23" placeholder="00" value="{{start_time_h}}" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="start_time_m" id="time"  title="Start Time Minutes"  min="0" max="59" placeholder="00" value="{{start_time_m}}" required>
+            </p>
+            <p>
+                <label for="end_date">
+                    <span class="required" style="color: red">*</span>
+                    End Date:
+                </label>
+                <input type="date" name="end_date" id="end_date"  value="{{end_date}}" maxlength="10" title="End Date" required>
+
+                <label for="end_time">
+                    ,
+                </label>
+                <input  type="number"  name="end_time_h" id="time"  title="End Time Hour"  min="0" max="23" placeholder="00" value="{{end_time_h}}" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="end_time_m" id="time"  title="End Time Minutes"  min="0" max="59" placeholder="00" value="{{end_time_m}}" required>
+            </p>
+            <br>
+            <button name="action" type="submit" value="save">Save</button>
+            <a href="{{ url_for('appointments') }}"><input class="cancelBtn" type="button" value="Cancel"></a>
+        </form>
+    </div>
+    <script>
+        document.querySelectorAll('#time')
+            .forEach(e => e.oninput = () => {
+                // Always 2 digits
+                if (e.value.length >= 2) e.value = e.value.slice(0, 2);
+                // 0 on the left (doesn't work on FF)
+                if (e.value.length === 1) e.value = '0' + e.value;
+                // Avoiding letters on FF
+                if (!e.value) e.value = '00';
+            });
+
+    </script>
+    </header>
+
+</body>
+
+</html>

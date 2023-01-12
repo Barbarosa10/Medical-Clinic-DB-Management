@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F29496BB-7737-2904-B37C-3C1FD5AAA419" name="WorkSchedule">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:50:22 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="WorkSchedule_ID" id="45B08A91-15FE-4EA0-8C9B-601A140C34EA">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:50:48 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="day" id="FB974A50-3B79-2873-B5A1-2BA001031D91">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:50:29 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<constraintName>workSchedule_day_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(day, &apos;^([A-Za-z]+)$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="start_time" id="B35BF4FD-5C29-37B2-2AAB-59E9C987136A">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:51:03 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="end_time" id="0A97D1BF-1E0B-409E-A3A6-18CD5171F8E1">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:51:17 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Doctor_ID" id="B13F0BCD-5043-DB5D-A43A-E515EECA24C0">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:59:00 UTC</createdTime>
+<generatorID>86BD49DF-C83C-3256-278F-5755B64C8F7B</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<referedAttribute>03F9480E-DB05-FE85-8DA3-F48EEF40E030</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0A426021-AE2E-1E17-CEBE-DA56C7EF7026" name="WorkSchedule PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:51:02 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>45B08A91-15FE-4EA0-8C9B-601A140C34EA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

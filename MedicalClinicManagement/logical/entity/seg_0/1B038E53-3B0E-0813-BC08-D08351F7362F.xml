@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1B038E53-3B0E-0813-BC08-D08351F7362F" name="Bill">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:43:19 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Bill_ID" id="2F9763C3-B3B2-6EE1-9D00-2E79A19C0BDA">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:43:24 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="total" id="BF378F38-54E0-31A4-D8E1-BD08EBA50588">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:43:38 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Appointment_ID" id="10AFC188-B895-2560-23C3-E0282FE02BF5">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:55:52 UTC</createdTime>
+<generatorID>91788D7C-91A7-745D-E86F-9C18786F581A</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<referedAttribute>27AB33DB-F724-A61B-D9C8-A75B4F1F45F8</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="77684E41-BA11-3D8C-150B-7948891BC555" name="Bill PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:43:30 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2F9763C3-B3B2-6EE1-9D00-2E79A19C0BDA</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="056B7A2A-124A-9E15-C6D3-0F7413C245E0" name="AppointmentBill">
+<createdBy>duciu</createdBy>
+<createdTime>2022-12-23 12:55:42 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<newElementsIDs>10AFC188-B895-2560-23C3-E0282FE02BF5</newElementsIDs>
+<usedAttributes>
+<attributeRef>10AFC188-B895-2560-23C3-E0282FE02BF5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

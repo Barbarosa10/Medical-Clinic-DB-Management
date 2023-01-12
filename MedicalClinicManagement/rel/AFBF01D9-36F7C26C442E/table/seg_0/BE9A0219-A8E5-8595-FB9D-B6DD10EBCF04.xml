@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BE9A0219-A8E5-8595-FB9D-B6DD10EBCF04" name="Department">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>6DE41BD0-DCC3-8C1E-ACD8-970823D1BE92</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Department_ID" id="44C9CDA3-70A4-6EA3-FC86-F29FA77FD196">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>BF6AF499-D51E-D89A-08C4-6A3F96B885D7</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fieldArea" id="83A233E3-2FC3-B121-4713-615A9CE01D4F">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>A2D8AF3A-E6E1-D58C-EEBC-88CA4A064B87</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<constraintName>department_fieldArea_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(fieldArea, &apos;^([A-Za-z]+)$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0BAEAF52-6D97-9CFC-43D3-235DEAB19947" name="Department_PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>2A81CB77-51E2-D2B6-B29D-F6636E703FE9</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="44C9CDA3-70A4-6EA3-FC86-F29FA77FD196"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="30E1798E-9195-07EE-778E-168E43592367" name="Department_fieldArea_UN">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>FC8DCDF9-D294-BC81-AD82-297C2EDEF00A</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="83A233E3-2FC3-B121-4713-615A9CE01D4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

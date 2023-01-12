@@ -1,0 +1,68 @@
+/* *{
+    padding: 0;
+    padding-top: 10px;
+    margin: 0;
+    box-sizing: border-box;
+} */
+.footer-container {
+    background-color: rgb(41, 26, 26);;
+    padding-bottom: 4rem;
+}
+
+/* .footer {
+    width: 95%;
+    height: 40vh;
+    background-color: rgb(41, 26, 26);
+    font-size: 20px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+} */
+
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(49, 44, 44);
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+  font-size: 20px;
+}
+/* .footer-heading {
+    display: flex;
+    flex-direction: column;
+} */
+.mail:link {
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+    width: fit-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.mail:hover{
+    background-color: white;
+}
+.phone:link {
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+    width: fit-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.phone:hover{
+    background-color: white;
+}

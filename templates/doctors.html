@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Duciuc Danut">
+    <meta name="description" content="Medical Clinic DataBase Management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Clinic DB Management</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/footer.css">
+    <style>
+        .topnav {
+            overflow: hidden;
+        }
+
+        .topnav .left-opt {
+            float: left;
+            /* text-align: left; */
+        }
+
+        .topnav .right-opt {
+            float: right;
+            /* text-align: right; */
+        }
+
+        html {
+            background: black;
+
+        }
+
+        body {
+            background: black;
+            margin: 0;
+
+        }
+
+        .menu:hover {
+            background-color: black;
+            color: white;
+
+        }
+
+        .menu {
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            /* font-size:1.3vw;  */
+            font-size: 20px;
+            margin-top: 0;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10%;
+
+        }
+
+        .topnav button.active {
+            background-color: black;
+            color: white;
+        }
+
+        @media screen and (max-width: 1100px) {
+            .bg-img {
+                max-height: 250px;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .bg-img {
+                max-height: 230px;
+            }
+        }
+
+
+        @media screen and (max-width: 800px) {
+
+
+            .right-opt {
+                display: none;
+            }
+
+            /* .menu{
+                float: none;
+            } */
+
+
+        }
+
+        .bg-img {
+            /* The image used */
+            background-image: url("/static/image/imagine.jpg");
+            width: 100%;
+            height: auto;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            /* Needed to position the navbar */
+            position: relative;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+        }
+
+        .title {
+            padding-top: 120px;
+            padding-bottom: 120px;
+            text-align: center;
+            font-size: 4.5vw;
+            font-weight: bold;
+        }
+
+        .tabcontent {
+            font-size: 1vw;
+            text-align: center;
+        }
+
+        .search {
+            background-image: url('/static/css/searchicon.png');
+            background-size: 30px, 10px;
+            background-repeat: no-repeat;
+            background-color: black;
+            color: white;
+            background-position: 5px 5px;
+            width: 10%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+            margin-left: 10px;
+        }
+
+        .doctorTable {
+            /* width: 100%;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+            border-color: #32bcee;
+            table-layout: fixed;
+            min-width: max-content;
+            display: inline; */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .workScheduleTable {
+            /* width: 100%;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+            border-color: #32bcee;
+            table-layout: fixed;
+            min-width: max-content;
+            display: inline; */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+
+            padding: 10px 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 30px;
+            background-color: crimson;
+            color: black;
+        }
+
+        .table-wrapper1 {
+            max-height: 400px;
+            overflow-y: scroll;
+            margin: 20px;
+
+        }
+
+        .outer-wrapper1 {
+            border: 1px solid white;
+            box-shadow: 0px 0px 3px white;
+
+            margin: 20px;
+            border-radius: 5px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .table-wrapper2 {
+            max-height: 400px;
+            overflow-y: scroll;
+            margin: 20px;
+
+        }
+
+        .outer-wrapper2 {
+            border: 1px solid white;
+            box-shadow: 0px 0px 3px white;
+
+            margin: 20px;
+            border-radius: 5px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        tr {
+            color: white;
+            font-size: 25px;
+        }
+
+        tr:hover {
+            background-color: darkgrey;
+            color: black;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        /* .row-ID {
+            width: 5%;
+        }
+        .row-workID{
+            width: 5%;
+        }
+
+        .row-department {
+            width: 15%;
+        }
+        .row-phone {
+            width: 15%;
+        }
+        .row-action{
+            width: 15%;
+        } */
+
+        .doctorTable button {
+            background-color: transparent;
+            font-size: 20px;
+            ;
+            border-radius: 20%;
+            cursor: pointer;
+            overflow: hidden;
+            border: none;
+
+        }
+
+        .doctorTable button:hover {
+            background-color: black;
+        }
+
+        .workScheduleTable button {
+            background-color: transparent;
+            font-size: 20px;
+            ;
+            border-radius: 20%;
+            cursor: pointer;
+            overflow: hidden;
+            border: none;
+
+        }
+
+        .workScheduleTable button:hover {
+            background-color: black;
+        }
+
+        .save {
+            color: red;
+        }
+
+        .edit {
+            color: crimson;
+        }
+
+        .delete {
+            color: green;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 30px;
+            color: #32bcee;
+        }
+
+        label {
+            font-size: 25px;
+            color: #32bcee;
+        }
+
+        select {
+            font-size: 20px;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        .doctorForm button {
+            background-color: crimson;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+
+        }
+        
+        .workScheduleForm button {
+            background-color: crimson;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+
+        }
+
+        .tableBtn{
+            display: inline-block;
+        }
+
+        .doctorForm button:hover {
+            background-color: #32bcee;
+        }
+
+        .workScheduleForm button:hover {
+            background-color: #32bcee;
+        }
+
+        .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+        #start_time {
+            border: none;
+            color: #555;
+            text-align: center;
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="bg-img">
+
+            <div class="topnav" id="topnav">
+                <div class="left-opt">
+                    <!-- <a href="#home"> <button class="menu active">Home</button></a> -->
+                    <a href="{{ url_for('doctors') }}"> <button class="menu active">Doctors</button></a>
+                    <a href="{{ url_for('patients') }}"> <button class="menu">Patients</button></a>
+                    <a href="{{ url_for('services') }}"> <button class="menu">Services</button></a>
+                    <a href="{{ url_for('departments') }}"> <button class="menu">Departments</button></a>
+                    <a href="{{ url_for('appointments') }}"> <button class="menu">Appointments/Bills</button></a>
+
+                </div>
+                <div class="right-opt">
+                    <a href="#about"> <button class="menu">About</button></a>
+                    <a href="#contact"> <button class="menu">Contact</button></a>
+                </div>
+                <div class="title">
+                    <center> Take care of your health!</center>
+                    <div class="tabcontent">
+                        <center>
+                            <h1 style="color: brown">SERVICII MEDICALE</h1>
+                            <h3>Pentru ca tu să fii bine!</h3>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <h2 style="color: white; padding-left: 10px; padding-top: 40px;">Doctors</h2>
+
+    <input class="search" type="text" id="searchLastName" name="searchLastName" placeholder="Last Name" title="Type in a name">
+    <input class="search" type="text" id="searchFirstName" name="searchFirstName" placeholder="First Name" title="Type in a name">
+    <input class="search" type="text" id="searchDay" name="searchDay" placeholder="Day" title="Type in a name">
+    <input class="search" type="text" id="searchGender" name="searchGender" placeholder="Gender" title="Type in a name">
+    <input class="search" type="text" id="searchPhone" name="searchPhone" placeholder="Phone Number" title="Type in a name">
+    <input class="search" type="text" id="searchDepartment" name="searchDepartment" placeholder="Department" title="Type in a name">
+
+    <div class="outer-wrapper1">
+        <div class="table-wrapper1">
+            <table class="doctorTable" id="doctorTable">
+
+                <thead>
+
+                    <tr>
+                        <th class="row-ID">ID</th>
+                        <th class="row-lastName">Last Name</th>
+                        <th class="row-firstName">First Name</th>
+                        <th class="row-gender">Gender</th>
+                        <th class="row-phone">Phone</th>
+                        <th class="row-department">Department</th>
+                        <th class="row-action">Action</th>
+                        <!-- <th style="background-color: black;"></th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in doctors %}
+                    <tr>
+                        <td contenteditable="false" class="id">{{loop.index}}</td>
+                        <td contenteditable="false" class="lastName">{{doctor["last_name"]}}</td>
+                        <td contenteditable="false" class="firstName">{{doctor["first_name"]}}</td>
+                        <td contenteditable="false" class="gender">{{doctor["gender"]}}</td>
+                        <td contenteditable="false" class="pphone">{{doctor["phone_number"]}}</td>
+                        <td contenteditable="false" class="departmentName">{{doctor["department_name"]}}</td>
+                        <td>
+                            <!-- <form class="was-validated" method='post' action="/saveDoctor">
+                                <button type="submit" class="save">Save</button>
+                            </form> -->
+                            <form class="tableBtn" method='post' action="/getDoctor">
+                                <button type="submit" class="edit" name="doctor_id"
+                                    value="{{doctor['doctor_id']}}">Edit</button>
+                            </form>
+                            <form class="tableBtn" method='post' action="/deleteDoctor">
+                                <button type="submit" class="delete" name="doctor_id"
+                                    value="{{doctor['doctor_id']}}">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <br>
+    <form id="add-doctor" method="post" action="/addDoctor">
+        <fieldset class="doctorForm" style="text-align: left; margin: auto;">
+            <legend>Add a doctor</legend>
+            <p>
+                <label for="last_name">
+                    <span class="required" style="color: red">*</span>
+                    Last Name:
+                </label>
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" maxlength="20" title="Last Name" required>
+            </p>
+            <p>
+                <label for="first_name">
+                    <span class="required" style="color: red">*</span>
+                    First Name:
+                </label>
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" maxlength="30" title="First Name" required>
+            </p>
+            <p>
+                <label for="gender">
+                    <span class="required" style="color: red">*</span>
+                    Gender:
+                </label>
+                <!-- <input type="text" name="gender" id="gender" required> -->
+                <select name="gender" id="gender" title="Gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </p>
+            <p>
+                <label for="department_name">
+                    <span class="required" style="color: red">*</span>
+                    Department:
+                </label>
+                <!-- <input type="text" name="gender" id="gender" required> -->
+                <select name="department_name" id="department_name" title="Department">
+                    {% for department in departments %}
+                    <option name="department_name" value="{{department['department_id']}}">
+                        {{department['department_name']}}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p>
+                <label for="phone_number">
+                    <span class="required" style="color: red">*</span>
+                    Phone Number:
+                </label>
+                <input type="tel" name="phone_number" id="phone_number" placeholder="0000000000" maxlength="10" minlength="10" pattern="[0-9]{4}[0-9]{3}[0-9]{3}"
+                    title="Phone Number" required>
+            </p>
+            <button>Add Doctor</button>
+
+        </fieldset>
+    </form>
+    <br>
+    <h2 style="color: white; padding-left: 10px; padding-top: 20px;">Work Schedule</h2>
+    <div class="outer-wrapper2">
+        <div class="table-wrapper2">
+            <table class="workScheduleTable" id="workScheduleTable">
+
+                <thead>
+
+                    <tr>
+                        <th class="row-workID">ID</th>
+                        <th class="row-workLastName">Last Name</th>
+                        <th class="row-workFirstName">First Name</th>
+                        <th class="row-day">Day</th>
+                        <th class="row-startTime">Start Time</th>
+                        <th class="row-endTime">End Time</th>
+                        <th class="row-action">Action</th>
+                        <!-- <th style="background-color: black;"></th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for workSchedule in workSchedules %}
+                    <tr>
+                        <td contenteditable="false" class="workId">{{loop.index}}</td>
+                        <td contenteditable="false" class="workLastName">{{workSchedule["last_name"]}}</td>
+                        <td contenteditable="false" class="workFirstName">{{workSchedule["first_name"]}}</td>
+                        <td contenteditable="false" class="day">{{workSchedule["day"]}}</td>
+                        <td contenteditable="false" class="startTime">{{workSchedule["start_time"]}}</td>
+                        <td contenteditable="false" class="endTime">{{workSchedule["end_time"]}}</td>
+                        <td>
+                            <!-- <form class="was-validated" method='post' action="/saveDoctor">
+                                <button type="submit" class="save">Save</button>
+                            </form> -->
+                            <form class="tableBtn" method='post' action="/getWorkSchedule">
+                                <button type="submit" class="edit" name="workSchedule_id"
+                                    value="{{workSchedule['workSchedule_id']}}">Edit</button>
+                            </form>
+                            <form class="tableBtn" method='post' action="/deleteWorkSchedule">
+                                <button type="submit" class="delete" name="workSchedule_id"
+                                    value="{{workSchedule['workSchedule_id']}}">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+    <br> <br>
+    <form id="add-workSchedule" method="post" action="/addWorkSchedule">
+        <fieldset class="workScheduleForm" style="text-align: left; margin: auto;">
+            <legend>Add the work schedule for a doctor</legend>
+            <p>
+                <label for="last_name">
+                    <span class="required" style="color: red">*</span>
+                    Last Name:
+                </label>
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" maxlength="20" title="Last Name" required>
+            </p>
+            <p>
+                <label for="first_name">
+                    <span class="required" style="color: red">*</span>
+                    First Name:
+                </label>
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" maxlength="30" title="First Name" required>
+            </p>
+            <p>
+                <label for="day">
+                    <span class="required" style="color: red">*</span>
+                    Day:
+                </label>
+
+                <select name="day" id="day" title="Day">
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                </select>
+            </p>
+            <p>
+                <label for="start_time">
+                    <span class="required" style="color: red">*</span>
+                    Start Time:
+                </label>
+                <input  type="number"  name="start_time_h" id="time"  title="Start Time Hour"  min="0" max="23" placeholder="00" value="00" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="start_time_m" id="time"  title="Start Time Minutes"  min="0" max="59" placeholder="00" value="00" required>
+            </p>
+            <p>
+                <label for="end_time">
+                    <span class="required" style="color: red">*</span>
+                    End Time:
+                </label>
+                <input  type="number"  name="end_time_h" id="time"  title="End Time Hour"  min="0" max="23" placeholder="00" value="00" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="end_time_m" id="time"  title="End Time Minutes"  min="0" max="59" placeholder="00" value="00" required>
+            </p>
+            <button>Add Work Schedule</button>
+
+        </fieldset>
+    </form>
+    <div class="footer-containter">
+        <div class="footer">
+            <div class="footer-heading footer-1">
+                <h2 id="about">About Us</h2>
+                <p>We are a health care center where you receive treatment for your illnesses, vaccinations. Also, we are known for basic laboratory testing and routine health screenings.</p>
+            </div>
+            <div class="footer-heading footer-2">
+                <h2 id="contact">Contact Us</h2>
+                <p>Give us a feedback or contact us if you have any questions!</p>
+                <a class="mail" href = "mailto:danut.duciuc@student.tuiasi.ro">
+                    <i class="fa fa-envelope" style="font-size:36px"></i>
+                </a>
+                <a class="phone" href="tel:0758532546"><i class="fa fa-phone" style="font-size:36px"></i></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('#time')
+            .forEach(e => e.oninput = () => {
+                // Always 2 digits
+                if (e.value.length >= 2) e.value = e.value.slice(0, 2);
+                // 0 on the left (doesn't work on FF)
+                if (e.value.length === 1) e.value = '0' + e.value;
+                // Avoiding letters on FF
+                if (!e.value) e.value = '00';
+            });
+        
+        function filterTable(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#doctorTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col0 = rows[i].cells[0].textContent.toUpperCase();
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+                var col3 = rows[i].cells[3].textContent.toUpperCase();
+                var col4 = rows[i].cells[4].textContent.toUpperCase();
+                var col5 = rows[i].cells[5].textContent.toUpperCase();
+                if (col0.indexOf(filter) > -1 || col1.indexOf(filter) > -1 || col2.indexOf(filter) > -1 ||
+                    col3.indexOf(filter) > -1 || col4.indexOf(filter) > -1 || col5.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+
+            rows = document.querySelector("#workScheduleTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col0 = rows[i].cells[0].textContent.toUpperCase();
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+                var col3 = rows[i].cells[3].textContent.toUpperCase();
+                if (col0.indexOf(filter) > -1 || col1.indexOf(filter) > -1 || col2.indexOf(filter) > -1 ||
+                    col3.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterLastName(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#doctorTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+
+                if (col1.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+
+            rows = document.querySelector("#workScheduleTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+                if (col1.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterFirstName(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#doctorTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+
+                if (col2.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+            rows = document.querySelector("#workScheduleTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+                if (col2.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterGender(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#doctorTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col3 = rows[i].cells[3].textContent.toUpperCase();
+
+                if (col3.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterPhone(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#doctorTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col4 = rows[i].cells[4].textContent.toUpperCase();
+
+                if (col4.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterDepartment(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#doctorTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col5 = rows[i].cells[5].textContent.toUpperCase();
+
+                if (col5.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterDay(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#workScheduleTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col = rows[i].cells[3].textContent.toUpperCase();
+
+                if (col.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+
+
+        document.querySelector('#searchLastName').addEventListener('keyup', filterLastName, false);
+        document.querySelector('#searchFirstName').addEventListener('keyup', filterFirstName, false);
+        document.querySelector('#searchGender').addEventListener('keyup', filterGender, false);
+        document.querySelector('#searchPhone').addEventListener('keyup', filterPhone, false);
+        document.querySelector('#searchDepartment').addEventListener('keyup', filterDepartment, false);
+        document.querySelector('#searchDay').addEventListener('keyup', filterDay, false);
+        //add listeners
+        //sadd_patient.addEventListener("submit", addDoctor);
+        //table.addEventListener("click", DeleteRow);
+        //table.addEventListener("click", editRow);
+        //table.addEventListener("click", saveRow);
+        
+// table.rows[0].cells.length - 2
+
+
+    </script>
+
+
+</body>
+
+</html>

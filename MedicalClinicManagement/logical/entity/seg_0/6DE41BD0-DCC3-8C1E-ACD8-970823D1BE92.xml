@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6DE41BD0-DCC3-8C1E-ACD8-970823D1BE92" name="Department">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:53:00 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Department_ID" id="BF6AF499-D51E-D89A-08C4-6A3F96B885D7">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:53:07 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fieldArea" id="A2D8AF3A-E6E1-D58C-EEBC-88CA4A064B87">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:53:15 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<constraintName>department_fieldArea_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(fieldArea, &apos;^([A-Za-z]+)$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2A81CB77-51E2-D2B6-B29D-F6636E703FE9" name="Department PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:53:14 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BF6AF499-D51E-D89A-08C4-6A3F96B885D7</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="FC8DCDF9-D294-BC81-AD82-297C2EDEF00A" name="DepartmentFieldArea">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:53:32 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="false"/>
+</engineerTo>
+<newElementsIDs>A2D8AF3A-E6E1-D58C-EEBC-88CA4A064B87</newElementsIDs>
+<usedAttributes>
+<attributeRef>A2D8AF3A-E6E1-D58C-EEBC-88CA4A064B87</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

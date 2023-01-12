@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Duciuc Danut">
+    <meta name="description" content="Medical Clinic DataBase Management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Clinic DB Management</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <!-- <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/> -->
+    <style>
+        html {
+            /* background: black; */
+            background-image: url("/static/image/edit_background.jpg");
+        }
+
+        body {
+            margin: 0;
+
+        }
+
+        #animated-title {
+            font-size: 60px;
+            color: crimson;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        label {
+            font-size: 50px;
+            color: #32bcee;
+        }
+
+        select {
+            font-size: 30px;
+        }
+
+        input {
+            font-size: 30px;
+        }
+
+        .edit-form {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+
+        }
+
+        button {
+            font-size: 40px;
+            background-color: transparent;
+            color: crimson;
+
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .cancelBtn{
+            font-size: 40px;
+            background-color: transparent;
+            color: crimson;
+
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .cancelBtn:hover{
+            background-color: crimson;
+            color: black;
+        }
+        button:hover {
+            background-color: crimson;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="animated-title"><p>Please edit work schedule or cancel!</p></div>
+    </header>
+    <div class="edit-form" id="edit-form">
+        <form class="form_container" id="edit-workSchedule" method="post" action="/editWorkSchedule">
+            <p>
+                <input type="hidden" name="workSchedule_id" id="workSchedule_id" value="{{workSchedule_id}}"  required>
+            </p>
+            <p>
+                <label for="last_name">
+                    <span class="required" style="color: red">*</span>
+                    Last Name:
+                </label>
+                <input type="text" name="last_name" id="last_name" value="{{last_name}}" maxlength="20" title="Last Name" readonly required>
+            </p>
+            <p>
+                <label for="first_name">
+                    <span class="required" style="color: red">*</span>
+                    First Name:
+                </label>
+                <input type="text" name="first_name" id="first_name" value="{{first_name}}" maxlength="30" title="First Name"
+                    readonly required>
+            </p>
+            <p>
+                <label for="day">
+                    <span class="required" style="color: red">*</span>
+                    Day:
+                </label>
+
+                <select name="day" id="day" title="Day">
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                </select>
+            </p>
+            <p>
+                <label for="start_time">
+                    <span class="required" style="color: red">*</span>
+                    Start Time:
+                </label>
+                <input  type="number"  name="start_time_h" id="time"  title="Start Time"  min="0" max="23" placeholder="00" value="{{start_time_h}}" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="start_time_m" id="time"  title="Start Time"  min="0" max="59" placeholder="00" value="{{start_time_m}}" required>
+            </p>
+            <p>
+                <label for="end_time">
+                    <span class="required" style="color: red">*</span>
+                    End Time:
+                </label>
+                <input  type="number"  name="end_time_h" id="time"  title="End Time"  min="0" max="23" placeholder="00" value="{{end_time_h}}" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="end_time_m" id="time"  title="End Time"  min="0" max="59" placeholder="00" value="{{end_time_m}}" required>
+            </p>
+            <br>
+            <button name="action" type="submit" value="save">Save</button>
+            <a href="{{ url_for('doctors') }}"><input class="cancelBtn" type="button" value="Cancel"></a>
+        </form>
+    </div>
+    <script>
+        document.querySelectorAll('#time')
+            .forEach(e => e.oninput = () => {
+                // Always 2 digits
+                if (e.value.length >= 2) e.value = e.value.slice(0, 2);
+                // 0 on the left (doesn't work on FF)
+                if (e.value.length === 1) e.value = '0' + e.value;
+                // Avoiding letters on FF
+                if (!e.value) e.value = '00';
+            });
+    </script>
+    </header>
+
+</body>
+
+</html>

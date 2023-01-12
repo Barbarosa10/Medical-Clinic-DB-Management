@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Duciuc Danut">
+    <meta name="description" content="Medical Clinic DataBase Management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Clinic DB Management</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
+    <style>
+        html {
+            /* background: black; */
+            background-image: url("/static/image/edit_background.jpg");
+        }
+
+        body {
+            margin: 0;
+
+        }
+
+        #animated-title {
+            font-size: 60px;
+            color: crimson;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        label {
+            font-size: 50px;
+            color: #32bcee;
+        }
+
+        select {
+            font-size: 30px;
+        }
+
+        input {
+            font-size: 30px;
+        }
+
+        .edit-form {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+
+        }
+
+        button {
+            font-size: 40px;
+            background-color: transparent;
+            color: crimson;
+
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .cancelBtn{
+            font-size: 40px;
+            background-color: transparent;
+            color: crimson;
+
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .cancelBtn:hover{
+            background-color: crimson;
+            color: black;
+        }
+        button:hover {
+            background-color: crimson;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="animated-title"><p>Please edit service or cancel!</p></div>
+    </header>
+    <div class="edit-form" id="edit-form">
+        <form class="form_container" id="edit-service" method="post" action="/editService">
+            <p>
+                <input type="hidden" name="service_id" id="service_id" value="{{service_id}}"  required>
+            </p>
+            <p>
+                <label for="name">
+                    <span class="required" style="color: red">*</span>
+                    Service Name:
+                </label>
+                <input type="text" name="name" id="name" value="{{name}}" maxlength="20" title="Service Name" required>
+            </p>
+            <p>
+                <label for="price">
+                    <span class="required" style="color: red">*</span>
+                    Price:
+                </label>
+                <input type="number" name="price" id="price" value="{{price}}" min="1" max="10000" title="Price"
+                    required>
+            </p>
+            <br>
+            <button name="action" type="submit" value="save">Save</button>
+            <a href="{{ url_for('services') }}"><input class="cancelBtn" type="button" value="Cancel"></a>
+        </form>
+    </div>
+    <script>
+
+
+    </script>
+    </header>
+
+</body>
+
+</html>

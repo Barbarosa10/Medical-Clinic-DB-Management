@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F9954724-FC5E-06A7-2858-EAB77A27B95F" name="Service">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:47:25 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Service_ID" id="6894DFE5-09F9-E2F0-53C5-87750A5C30E8">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:47:31 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="4290F5C0-3DDD-77C4-2104-17F0236F87D4">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:47:40 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<constraintName>service_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(name, &apos;^([A-Za-z_  ]+)&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="price" id="D5157B6F-40DD-92E7-D45C-4033B49D40CD">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:47:53 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D8BB58D9-9A84-A646-169D-C71B7E65C52C" name="Service PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:48:34 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6894DFE5-09F9-E2F0-53C5-87750A5C30E8</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="1FE2DBCD-1C68-03BD-DD51-4380D5E37A2D" name="ServiceName">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:48:41 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="false"/>
+</engineerTo>
+<newElementsIDs>4290F5C0-3DDD-77C4-2104-17F0236F87D4</newElementsIDs>
+<usedAttributes>
+<attributeRef>4290F5C0-3DDD-77C4-2104-17F0236F87D4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BCF94C64-1342-BB3A-3518-FB0AB5F47ABA" name="Doctor">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>B64D37FE-4879-68B7-75E3-6AEADAA6DCE6</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Doctor_ID" id="BA29BFBF-AFCC-150C-5A62-1DFF4885D093">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>03F9480E-DB05-FE85-8DA3-F48EEF40E030</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="first_name" id="9C322799-6120-DD9D-F90C-DBD980AF4076">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>F7DFAB90-313E-BFB8-1007-F5244BC26BD8</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<constraintName>doctor_first_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(first_name, &apos;^([A-Za-z]+)[-]?([A-Za-z]+)?$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="last_name" id="6BA77CD5-9345-B4AB-6EA6-B4ACC4A9BD93">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>E3D64C40-596B-8A36-D3B1-5D01AA8A0523</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<constraintName>doctor_last_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(last_name, &apos;^([A-Za-z]+)[-]?([A-Za-z]+)?$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gender" id="6A3ADD69-CF89-C06C-233B-CD9F4AD27A2B">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>33ECDBA4-FDB3-43E3-4D1B-A431B43AD3CB</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone_number" id="0CF79795-93CE-7747-69E2-843AEF5D8560">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>EE68C247-2EB5-6473-B740-6FA146DA8A0B</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<constraintName>doctor_phone_number_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(phone_number, &apos;^(07[0-8]{1}[0-9]{1}|02[0-9]{2}|03[0-9]{2}){1}?([0-9]{3}){2}$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Department_ID" id="79A86FE7-B4E5-20A4-D2E7-97E51E9BD1CB">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>0F1B9431-3BA2-07CF-D7ED-888FFF9F6E40</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6F678C35-5397-61AF-773F-7008C29E1838" referredColumn="44C9CDA3-70A4-6EA3-FC86-F29FA77FD196"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5D586615-D299-C00D-179E-D2C24CBB6B6D" name="Doctor_PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>359A133D-C4C7-B795-CA11-469B77C338ED</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA29BFBF-AFCC-150C-5A62-1DFF4885D093"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="798B60B3-FB58-5986-915F-D432E6327078" name="Doctor_Department_FK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>DE802E5C-63C9-6301-5692-3B21DAD47118</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79A86FE7-B4E5-20A4-D2E7-97E51E9BD1CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

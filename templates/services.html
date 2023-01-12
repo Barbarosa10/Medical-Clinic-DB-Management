@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Duciuc Danut">
+    <meta name="description" content="Medical Clinic DataBase Management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Clinic DB Management</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/footer.css">
+    <style>
+        .topnav {
+            overflow: hidden;
+        }
+
+        .topnav .left-opt {
+            float: left;
+            /* text-align: left; */
+        }
+
+        .topnav .right-opt {
+            float: right;
+            /* text-align: right; */
+        }
+
+        html {
+            background: black;
+
+        }
+
+        body {
+            background: black;
+            margin: 0;
+
+        }
+
+        .menu:hover {
+            background-color: black;
+            color: white;
+
+        }
+
+        .menu {
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            /* font-size:1.3vw;  */
+            font-size: 20px;
+            margin-top: 0;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10%;
+
+        }
+
+        .topnav button.active {
+            background-color: black;
+            color: white;
+        }
+
+        @media screen and (max-width: 1100px) {
+            .bg-img {
+                max-height: 250px;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .bg-img {
+                max-height: 230px;
+            }
+        }
+
+
+        @media screen and (max-width: 800px) {
+
+            /* .topnav a {
+                float:none;
+                display: block;
+                text-align: left;
+            }
+            .left-opt{
+                float: none;
+            } */
+            /* .right-opt{
+                float: none;
+            } */
+            .right-opt {
+                display: none;
+            }
+
+            /* .menu{
+                float: none;
+            } */
+
+
+        }
+
+        .bg-img {
+            /* The image used */
+            background-image: url("/static/image/imagine.jpg");
+            width: 100%;
+            height: auto;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            /* Needed to position the navbar */
+            position: relative;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+        }
+
+        .title {
+            padding-top: 120px;
+            padding-bottom: 120px;
+            text-align: center;
+            font-size: 4.5vw;
+            font-weight: bold;
+        }
+
+        .tabcontent {
+            font-size: 1vw;
+            text-align: center;
+        }
+
+        #search {
+            background-image: url('/static/css/searchicon.png');
+            background-size: 30px, 10px;
+            background-repeat: no-repeat;
+            background-color: black;
+            color: white;
+            background-position: 5px 5px;
+            width: 30%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+            margin-left: 10px;
+        }
+
+        .serviceTable {
+            /* width: 100%;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+            border-color: #32bcee;
+            table-layout: fixed;
+            min-width: max-content;
+            display: inline; */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+
+            padding: 10px 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 30px;
+            background-color: crimson;
+            color: black;
+        }
+
+        .table-wrapper {
+            max-height: 400px;
+            overflow-y: scroll;
+            margin: 20px;
+
+        }
+
+        .outer-wrapper {
+            border: 1px solid white;
+            box-shadow: 0px 0px 3px white;
+
+            margin: 20px;
+            border-radius: 5px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        tr {
+            color: white;
+            font-size: 25px;
+        }
+
+        tr:hover {
+            background-color: darkgrey;
+            color: black;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        /* .row-ID {
+            width: 5%;
+        }
+
+        .row-department {
+            width: 15%;
+        } */
+
+        .serviceTable button {
+            background-color: transparent;
+            font-size: 20px;
+            border-radius: 20%;
+            cursor: pointer;
+            overflow: hidden;
+            border: none;
+        }
+        .tableBtn{
+            display: inline-block;
+        }
+
+        .serviceTable button:hover {
+            background-color: black;
+        }
+
+        .save {
+            color: red;
+        }
+
+        .edit {
+            color: crimson;
+        }
+
+        .delete {
+            color: green;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 30px;
+            color: #32bcee;
+        }
+
+        label {
+            font-size: 25px;
+            color: #32bcee;
+        }
+
+        select {
+            font-size: 20px;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        .serviceForm button {
+            background-color: crimson;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+
+        }
+
+        .serviceForm button:hover {
+            background-color: #32bcee;
+        }
+
+        .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="bg-img">
+
+            <div class="topnav" id="topnav">
+                <div class="left-opt">
+                    <!-- <a href="#home"> <button class="menu active">Home</button></a> -->
+                    <a href="{{ url_for('doctors') }}"> <button class="menu">Doctors</button></a>
+                    <a href="{{ url_for('patients') }}"> <button class="menu">Patients</button></a>
+                    <a href="{{ url_for('services') }}"> <button class="menu active">Services</button></a>
+                    <a href="{{ url_for('departments') }}"> <button class="menu">Departments</button></a>
+                    <a href="{{ url_for('appointments') }}"> <button class="menu">Appointments/Bills</button></a>
+
+                </div>
+                <div class="right-opt">
+                    <a href="#about"> <button class="menu">About</button></a>
+                    <a href="#contact"> <button class="menu">Contact</button></a>
+                </div>
+                <div class="title">
+                    <center> Take care of your health!</center>
+                    <div class="tabcontent">
+                        <center>
+                            <h1 style="color: brown">SERVICII MEDICALE</h1>
+                            <h3>Pentru ca tu să fii bine!</h3>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <h2 style="color: white; padding-left: 10px; padding-top: 40px;">Services</h2>
+    <input type="text" id="search" name="search" placeholder="Search for services.." title="Type in a service">
+
+    <div class="outer-wrapper">
+        <div class="table-wrapper">
+            <table class="serviceTable" id="serviceTable">
+
+                <thead>
+
+                    <tr>
+                        <th class="row-ID">ID</th>
+                        <th class="row-name">Service Name</th>
+                        <th class="row-price">Price</th>
+                        <th class="row-action">Action</th>
+                        <!-- <th style="background-color: black;"></th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for service in services %}
+                    <tr>
+                        <td contenteditable="false" class="id">{{loop.index}}</td>
+                        <td contenteditable="false" class="name">{{service["name"]}}</td>
+                        <td contenteditable="false" class="price">{{service["price"]}} RON</td>
+
+                        <td>
+                            <!-- <form class="was-validated" method='post' action="/saveDoctor">
+                                <button type="submit" class="save">Save</button>
+                            </form> -->
+                            <form class="tableBtn" method='post' action="/getService">
+                                <button type="submit" class="edit" name="service_id"
+                                    value="{{service['service_id']}}">Edit</button>
+                            </form>
+                            <form class="tableBtn" method='post' action="/deleteService">
+                                <button type="submit" class="delete" name="service_id"
+                                    value="{{service['service_id']}}">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <br> <br> <br>
+    <form id="add-service" method="post" action="/addService">
+        <fieldset class="serviceForm" style="text-align: left; margin: auto;">
+            <legend>Add a service</legend>
+            <p>
+                <label for="name">
+                    <span class="required" style="color: red">*</span>
+                    Service Name:
+                </label>
+                <input type="text" name="name" id="name" placeholder="Service Name" maxlength="20" title="Service Name" required>
+            </p>
+            <p>
+                <label for="price">
+                    <span class="required" style="color: red">*</span>
+                    Price:
+                </label>
+                <input type="number" name="price" id="price" placeholder="Price" min="1" max="10000" title="Price" pattern="[0-9]" required>
+            </p>
+            
+            <br>
+            <button>Add Service</button>
+
+        </fieldset>
+    </form>
+    <div class="footer-containter">
+        <div class="footer">
+            <div class="footer-heading footer-1">
+                <h2 id="about">About Us</h2>
+                <p>We are a health care center where you receive treatment for your illnesses, vaccinations. Also, we are known for basic laboratory testing and routine health screenings.</p>
+            </div>
+            <div class="footer-heading footer-2">
+                <h2 id="contact">Contact Us</h2>
+                <p>Give us a feedback or contact us if you have any questions!</p>
+                <a class="mail" href = "mailto:danut.duciuc@student.tuiasi.ro">
+                    <i class="fa fa-envelope" style="font-size:36px"></i>
+                </a>
+                <a class="phone" href="tel:0758532546"><i class="fa fa-phone" style="font-size:36px"></i></a>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function filterTable(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#serviceTable tbody").rows;
+
+            for (let i = 0; i < rows.length; i++) {
+                var col0 = rows[i].cells[0].textContent.toUpperCase();
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+                if (col0.indexOf(filter) > -1 || col1.indexOf(filter) > -1 || col2.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+
+        }
+
+        document.querySelector('#search').addEventListener('keyup', filterTable, false);
+
+    </script>
+
+
+</body>
+
+</html>

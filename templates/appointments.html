@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Duciuc Danut">
+    <meta name="description" content="Medical Clinic DataBase Management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Clinic DB Management</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/footer.css">
+    <style>
+        .topnav {
+            overflow: hidden;
+        }
+
+        .topnav .left-opt {
+            float: left;
+            /* text-align: left; */
+        }
+
+        .topnav .right-opt {
+            float: right;
+            /* text-align: right; */
+        }
+
+        html {
+            background: black;
+
+        }
+
+        body {
+            background: black;
+            margin: 0;
+
+        }
+
+        .menu:hover {
+            background-color: black;
+            color: white;
+
+        }
+
+        .menu {
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            /* font-size:1.3vw;  */
+            font-size: 20px;
+            margin-top: 0;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10%;
+
+        }
+
+        .topnav button.active {
+            background-color: black;
+            color: white;
+        }
+
+        @media screen and (max-width: 1100px) {
+            .bg-img {
+                max-height: 250px;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .bg-img {
+                max-height: 230px;
+            }
+        }
+
+
+        @media screen and (max-width: 800px) {
+
+            /* .topnav a {
+                float:none;
+                display: block;
+                text-align: left;
+            }
+            .left-opt{
+                float: none;
+            } */
+            /* .right-opt{
+                float: none;
+            } */
+            .right-opt {
+                display: none;
+            }
+
+            /* .menu{
+                float: none;
+            } */
+
+
+        }
+
+        .bg-img {
+            /* The image used */
+            background-image: url("/static/image/imagine.jpg");
+            width: 100%;
+            height: auto;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            /* Needed to position the navbar */
+            position: relative;
+            border-bottom-left-radius: 5%;
+            border-bottom-right-radius: 5%;
+        }
+
+        .title {
+            padding-top: 120px;
+            padding-bottom: 120px;
+            text-align: center;
+            font-size: 4.5vw;
+            font-weight: bold;
+        }
+
+        .tabcontent {
+            font-size: 1vw;
+            text-align: center;
+        }
+
+        .search {
+            background-image: url('/static/css/searchicon.png');
+            background-size: 30px, 10px;
+            background-repeat: no-repeat;
+            background-color: black;
+            color: white;
+            background-position: 5px 5px;
+            width: 10%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+            margin-left: 10px;
+        }
+
+        .appointmentTable {
+            /* width: 100%;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+            border-color: #32bcee;
+            table-layout: fixed;
+            min-width: max-content;
+            display: inline; */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .billTable {
+            /* width: 100%;
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+            border-color: #32bcee;
+            table-layout: fixed;
+            min-width: max-content;
+            display: inline; */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+
+            padding: 10px 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 30px;
+            background-color: crimson;
+            color: black;
+        }
+
+        .table-wrapper1 {
+            max-height: 400px;
+            overflow-y: scroll;
+            margin: 20px;
+
+        }
+
+        .outer-wrapper1 {
+            border: 1px solid white;
+            box-shadow: 0px 0px 3px white;
+
+            margin: 20px;
+            border-radius: 5px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .table-wrapper2 {
+            max-height: 400px;
+            overflow-y: scroll;
+            margin: 20px;
+
+        }
+
+        .outer-wrapper2 {
+            border: 1px solid white;
+            box-shadow: 0px 0px 3px white;
+
+            margin: 20px;
+            border-radius: 5px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        tr {
+            color: white;
+            font-size: 25px;
+        }
+
+        tr:hover {
+            background-color: darkgrey;
+            color: black;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        /* .row-ID {
+            width: 5%;
+        }
+        .row-billID{
+            width: 5%;
+        }
+        .row-billLastName {
+            width: 10%;
+        }
+        .row-billFirstName {
+            width: 10%;
+        }
+        .row-billFirstName {
+            width: 10%;
+        }
+        .row-billCNP {
+            width: 10%;
+        }
+
+        .row-lastNamePatient {
+            width: 10%;
+        }
+        .row-firstNamePatient {
+            width: 10%;
+        }
+        .row-lastNameDoctor {
+            width: 10%;
+        }
+        .row-firstNameDoctor {
+            width: 10%;
+        }
+        .row-lastNamePatient {
+            width: 10%;
+        }
+        .row-startTime {
+            width: 10%;
+        }
+        .row-endTime {
+            width: 10%;
+        }
+        .row-cnp {
+            width: 10%;
+        }
+        .row-serviceAppointment{
+            width: 10%;
+        }
+        .row-service{
+            width: 15%;
+        } */
+
+        .appointmentTable button {
+            background-color: transparent;
+            font-size: 20px;
+            ;
+            border-radius: 20%;
+            cursor: pointer;
+            overflow: hidden;
+            border: none;
+
+        }
+
+        .appointmentTable button:hover {
+            background-color: black;
+        }
+
+        .billTable button {
+            background-color: transparent;
+            font-size: 20px;
+            ;
+            border-radius: 20%;
+            cursor: pointer;
+            overflow: hidden;
+            border: none;
+
+        }
+
+        .billTable button:hover {
+            background-color: black;
+        }
+
+        .save {
+            color: red;
+        }
+
+        .edit {
+            color: crimson;
+        }
+
+        .delete {
+            color: green;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 30px;
+            color: #32bcee;
+        }
+
+        label {
+            font-size: 25px;
+            color: #32bcee;
+        }
+
+        select {
+            font-size: 20px;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        .appointmentForm button {
+            background-color: crimson;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+
+        }
+        
+        .billForm button {
+            background-color: crimson;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 5px, 5px, 5px, 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+
+        }
+
+        .tableBtn{
+            display: inline-block;
+        }
+
+        .appointmentForm button:hover {
+            background-color: #32bcee;
+        }
+
+        .billForm button:hover {
+            background-color: #32bcee;
+        }
+
+        .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+        #start_time {
+            border: none;
+            color: #555;
+            text-align: center;
+            width: 40px;
+        }
+        .tab {
+            display: inline-block;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="bg-img">
+
+            <div class="topnav" id="topnav">
+                <div class="left-opt">
+                    <!-- <a href="#home"> <button class="menu active">Home</button></a> -->
+                    <a href="{{ url_for('doctors') }}"> <button class="menu">Doctors</button></a>
+                    <a href="{{ url_for('patients') }}"> <button class="menu">Patients</button></a>
+                    <a href="{{ url_for('services') }}"> <button class="menu">Services</button></a>
+                    <a href="{{ url_for('departments') }}"> <button class="menu">Departments</button></a>
+                    <a href="{{ url_for('appointments') }}"> <button class="menu active">Appointments/Bills</button></a>
+
+                </div>
+                <div class="right-opt">
+                    <a href="#about"> <button class="menu">About</button></a>
+                    <a href="#contact"> <button class="menu">Contact</button></a>
+                </div>
+                <div class="title">
+                    <center> Take care of your health!</center>
+                    <div class="tabcontent">
+                        <center>
+                            <h1 style="color: brown">SERVICII MEDICALE</h1>
+                            <h3>Pentru ca tu să fii bine!</h3>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <h2 style="color: white; padding-left: 10px; padding-top: 40px;">Appointments</h2>
+
+    <input class="search" type="text" id="searchPatientLastName" name="searchLastName" placeholder="Patient Last Name" title="Type in a name">
+    <input class="search" type="text" id="searchPatientFirstName" name="searchFirstName" placeholder="Patient First Name" title="Type in a name">
+    <input class="search" type="text" id="searchCNP" name="searchCNP" placeholder="CNP" title="Type in a name">
+    <input class="search" type="text" id="searchService" name="searchService" placeholder="Service" title="Type in a name">
+    <input class="search" type="text" id="searchDate" name="searchDate" placeholder="Date" title="Type in a name">
+    <input class="search" type="text" id="searchDoctorLastName" name="searchDoctorLastName" placeholder="Doctor Last Name" title="Type in a name">
+    <input class="search" type="text" id="searchDoctorFirstName" name="searchDoctorName" placeholder="Doctor First Name" title="Type in a name">
+
+    <div class="outer-wrapper1">
+        <div class="table-wrapper1">
+            <table class="appointmentTable" id="appointmentTable">
+
+                <thead>
+
+                    <tr>
+                        <th class="row-ID">ID</th>
+                        <th class="row-lastNamePatient">Patient's Last Name</th>
+                        <th class="row-firstNamePatient">Patient's First Name</th>
+                        <th class="row-cnp">CNP</th>
+                        <th class="row-serviceAppointment">Service</th>
+                        <th class="row-lastNameDoctor">Doctor's Last Name</th>
+                        <th class="row-firstNameDoctor">Doctor's First Name</th>
+                        <th class="row-startTime">Start Time</th>
+                        <th class="row-endTime">End Time</th>
+                        <th class="row-action">Action</th>
+                        <!-- <th style="background-color: black;"></th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in appointments %}
+                    <tr>
+                        <td contenteditable="false" class="id">{{loop.index}}</td>
+                        <td contenteditable="false" class="lastNamePatient">{{appointment["last_namePatient"]}}</td>
+                        <td contenteditable="false" class="firstNamePatient">{{appointment["first_namePatient"]}}</td>
+                        <td contenteditable="false" class="cnp">{{appointment["cnp"]}}</td>
+                        <td contenteditable="false" class="service">{{appointment["service"]}}</td>
+                        <td contenteditable="false" class="lastNameDoctor">{{appointment["last_nameDoctor"]}}</td>
+                        <td contenteditable="false" class="firstNameDoctor">{{appointment["first_nameDoctor"]}}</td>
+                        <td contenteditable="false" class="startTime">{{appointment["start_time"]}}</td>
+                        <td contenteditable="false" class="endTime">{{appointment["end_time"]}}</td>
+                        <td>
+                            <!-- <form class="was-validated" method='post' action="/saveDoctor">
+                                <button type="submit" class="save">Save</button>
+                            </form> -->
+                            <form class="tableBtn" method='post' action="/getAppointment">
+                                <button type="submit" class="edit" name="appointment_id"
+                                    value="{{appointment['appointment_id']}}">Edit</button>
+                            </form>
+                            <form class="tableBtn" method='post' action="/deleteAppointment">
+                                <button type="submit" class="delete" name="appointment_id"
+                                    value="{{appointment['appointment_id']}}">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <br>
+    <form id="add-appointment" method="post" action="/addAppointment">
+        <fieldset class="appointmentForm" style="text-align: left; margin: auto;">
+            <legend>Add an appointment</legend>
+            <p>
+                <label style="color: crimson;" for="patient">
+                    PATIENT:
+                </label>
+            </p>
+            <p>
+                <span class="tab"></span>
+                <label for="last_namePatient">
+                    <span class="required" style="color: red">*</span>
+                    Last Name:
+                </label>
+                <input type="text" name="last_namePatient" id="last_namePatient" placeholder="Last Name" maxlength="20" title="Patient's Last Name" required>
+            </p>
+            <p>
+                <span class="tab"></span>
+                <label for="first_namePatient">
+                    <span class="required" style="color: red">*</span>
+                    First Name:
+                </label>
+                <input type="text" name="first_namePatient" id="first_namePatient" placeholder="First Name" maxlength="30" title="First Name Patient" required>
+            </p>
+            <p>
+                <span class="tab"></span>
+                <label for="cnp">
+                    <span class="required" style="color: red">*</span>
+                    CNP:
+                </label>
+                <input type = "text" name="cnp" id="cnp" placeholder="0000000000000" pattern="^[1-9]\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])(0[1-9]|[1-4]\d|5[0-2]|99)(00[1-9]|0[1-9]\d|[1-9]\d\d)\d$"
+                    maxlength="13" minlength="13" title="CNP" required>
+            </p>
+            <p>
+                <label style="color: crimson;" for="patient">
+                    DOCTOR:
+                </label>
+            </p>
+            <p>
+                <span class="tab"></span>
+                <label for="last_nameDoctor">
+                    <span class="required" style="color: red">*</span>
+                    Last Name:
+                </label>
+                <input type="text" name="last_nameDoctor" id="last_nameDoctor" placeholder="Last Name" maxlength="20" title="Last Name Doctor" required>
+            </p>
+            <p>
+                <span class="tab"></span>
+                <label for="first_nameDoctor">
+                    <span class="required" style="color: red">*</span>
+                    First Name:
+                </label>
+                <input type="text" name="first_nameDoctor" id="first_nameDoctor" placeholder="First Name" maxlength="30" title="Doctor's First Name" required>
+            </p>
+            <p>
+                <label for="service_name">
+                    <span class="required" style="color: red">*</span>
+                    Service Name:
+                </label>
+                <select name="service_name" id="service_name" title="Service">
+                    {% for service in services %}
+                    <option name="service_name" value="{{service['service_id']}}">
+                        {{service['service_name']}}</option>
+                    {% endfor %}
+                </select>
+                <!-- <input type="text" name="service_name" id="service_name" placeholder="Service Name" maxlength="20" title="Service Name" required> -->
+            </p>
+            <p>
+                <label for="start_date">
+                    <span class="required" style="color: red">*</span>
+                    Start Date:
+                </label>
+                <input type="date" name="start_date" id="start_date" maxlength="10" title="Start Date" required>
+
+                <label for="start_time">
+                    ,
+                </label>
+                <input  type="number"  name="start_time_h" id="time"  title="Start Time Hour"  min="0" max="23" placeholder="00" value="00" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="start_time_m" id="time"  title="Start Time Minutes"  min="0" max="59" placeholder="00" value="00" required>
+            </p>
+
+            <p>
+                <label for="end_date">
+                    <span class="required" style="color: red">*</span>
+                    End Date:
+                </label>
+                <input type="date" name="end_date" id="end_date" maxlength="10" title="End Date" required>
+
+                <label for="end_time">
+                    ,
+                </label>
+                <input  type="number"  name="end_time_h" id="time"  title="End Time Hour"  min="0" max="23" placeholder="00" value="00" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="end_time_m" id="time"  title="End Time Minutes"  min="0" max="59" placeholder="00" value="00" required>
+            </p>
+            <button>Add Doctor</button>
+
+        </fieldset>
+    </form>
+    <h2 style="color: white; padding-left: 10px; padding-top: 10px;">Bills</h2>
+    <div class="outer-wrapper2">
+        <div class="table-wrapper2">
+            <table class="billTable" id="billTable">
+
+                <thead>
+
+                    <tr>
+                        <th class="row-billID">ID</th>
+                        <th class="row-billLastName">Last Name</th>
+                        <th class="row-billFirstName">First Name</th>
+                        <th class="row-billCNP">CNP</th>
+                        <th class="row-service">Service</th>
+                        <th class="row-date">Date</th>
+                        <th class="row-price">Price</th>
+                        <th class="row-action">Action</th>
+                        <!-- <th style="background-color: black;"></th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bill in bills %}
+                    <tr>
+                        <td contenteditable="false" class="billId">{{loop.index}}</td>
+                        <td contenteditable="false" class="billLastName">{{bill["last_name"]}}</td>
+                        <td contenteditable="false" class="billFirstName">{{bill["first_name"]}}</td>
+                        <td contenteditable="false" class="cnp">{{bill["cnp"]}}</td>
+                        <td contenteditable="false" class="service">{{bill["service"]}}</td>
+                        <td contenteditable="false" class="date">{{bill["date"]}}</td>
+                        <td contenteditable="false" class="price">{{bill["price"]}}</td>
+                        <td>
+                            <!-- <form class="was-validated" method='post' action="/saveDoctor">
+                                <button type="submit" class="save">Save</button>
+                            </form> -->
+                            <!-- <form class="tableBtn" method='post' action="/getBill">
+                                <button type="submit" class="edit" name="bill_id"
+                                    value="{{bill['bill_id']}}">Edit</button>
+                            </form> -->
+                            <form class="tableBtn" method='post' action="/deleteBill">
+                                <button type="submit" class="delete" name="bill_id"
+                                    value="{{bill['bill_id']}}">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+    <br> <br>
+    <form id="add-bill" method="post" action="/addBill">
+        <fieldset class="billForm" style="text-align: left; margin: auto;">
+            <legend>Generate the bill for an appointment</legend>
+            <p>
+                <label for="last_name">
+                    <span class="required" style="color: red">*</span>
+                    Last Name:
+                </label>
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" maxlength="20" title="Last Name" required>
+            </p>
+            <p>
+                <label for="first_name">
+                    <span class="required" style="color: red">*</span>
+                    First Name:
+                </label>
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" maxlength="30" title="First Name" required>
+            </p>
+            <p>
+                <label for="bill_cnp">
+                    <span class="required" style="color: red">*</span>
+                    CNP:
+                </label>
+                <input type = "text" name="bill_cnp" id="bill_cnp" placeholder="0000000000000" pattern="^[1-9]\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])(0[1-9]|[1-4]\d|5[0-2]|99)(00[1-9]|0[1-9]\d|[1-9]\d\d)\d$"
+                    maxlength="13" minlength="13" title="CNP" required>
+            </p>
+            <p>
+                <label for="bill_service_name">
+                    <span class="required" style="color: red">*</span>
+                    Service Name:
+                </label>
+                <select name="bill_service_name" id="bill_service_name" title="Service">
+                    {% for service in services %}
+                    <option name="bill_service_name" value="{{service['service_id']}}">
+                        {{service['service_name']}}</option>
+                    {% endfor %}
+                </select>
+                <!-- <input type="text" name="service_name" id="service_name" placeholder="Service Name" maxlength="20" title="Service Name" required> -->
+            </p>
+            <p>
+                <label for="bill_date">
+                    <span class="required" style="color: red">*</span>
+                    Start Date:
+                </label>
+                <input type="date" name="bill_date" id="bill_date" maxlength="10" title="Bill Date" required>
+
+                <label for="bill_time">
+                    ,
+                </label>
+                <input  type="number"  name="bill_time_h" id="time"  title="Bill Time Hour"  min="0" max="23" placeholder="00" value="00" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="bill_time_m" id="time"  title="Bill Time Minutes"  min="0" max="59" placeholder="00" value="00" required>
+            </p>
+            <!-- <p>
+                <label for="start_time">
+                    <span class="required" style="color: red">*</span>
+                    Start Time:
+                </label>
+                <input  type="number"  name="start_time_h" id="time"  title="Start Time Hour"  min="0" max="23" placeholder="00" value="00" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="start_time_m" id="time"  title="Start Time Minutes"  min="0" max="59" placeholder="00" value="00" required>
+            </p>
+            <p>
+                <label for="end_time">
+                    <span class="required" style="color: red">*</span>
+                    End Time:
+                </label>
+                <input  type="number"  name="end_time_h" id="time"  title="End Time Hour"  min="0" max="23" placeholder="00" value="00" required>
+                <label for=":" style="color: whitesmoke;"> :</label>
+                <input  type="number"  name="end_time_m" id="time"  title="End Time Minutes"  min="0" max="59" placeholder="00" value="00" required>
+            </p> -->
+            <button>Generate Bill</button>
+
+        </fieldset>
+    </form>
+    <div class="footer-containter">
+        <div class="footer">
+            <div class="footer-heading footer-1">
+                <h2 id="about">About Us</h2>
+                <p>We are a health care center where you receive treatment for your illnesses, vaccinations. Also, we are known for basic laboratory testing and routine health screenings.</p>
+            </div>
+            <div class="footer-heading footer-2">
+                <h2 id="contact">Contact Us</h2>
+                <p>Give us a feedback or contact us if you have any questions!</p>
+                <a class="mail" href = "mailto:danut.duciuc@student.tuiasi.ro">
+                    <i class="fa fa-envelope" style="font-size:36px"></i>
+                </a>
+                <a class="phone" href="tel:0758532546"><i class="fa fa-phone" style="font-size:36px"></i></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('#time')
+            .forEach(e => e.oninput = () => {
+                // Always 2 digits
+                if (e.value.length >= 2) e.value = e.value.slice(0, 2);
+                // 0 on the left (doesn't work on FF)
+                if (e.value.length === 1) e.value = '0' + e.value;
+                // Avoiding letters on FF
+                if (!e.value) e.value = '00';
+            });
+        // var timepicker = new TimePicker('start_time', {
+        //     lang: 'en',
+        //     theme: 'dark'
+        // });
+        // timepicker.on('change', function(evt) {
+        
+        //     var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+        //     evt.element.value = value;
+
+        // });
+        // const wrapper = document.getElementById("topnav");
+
+        // wrapper.addEventListener('click', (e) => {
+
+        //     let current = document.getElementsByClassName("active");
+        //     current[0].classList.remove("active");  // Remove .active CSS Class
+
+        //     e.target.classList.add('active'); // Add .active CSS Class
+
+
+        // });
+        let lastRow
+        var add_patient = document.getElementById("add-patient");
+        const form = document.querySelector('form');
+        let bodyEl = document.querySelector('tbody');
+        let table = document.querySelector('table');
+        let deleteBtn = document.querySelectorAll('#delete');
+
+        function addDoctor(e) {
+            e.preventDefault();
+            const lastName = document.getElementById("lastName").value + "";
+            const firstName = document.getElementById("firstName").value + "";
+            const gender = document.getElementById("gender").value + "";
+            const phone = document.getElementById("phone").value + "";
+
+            bodyEl.innerHTML += `
+    
+    <tr>
+        
+        <td contenteditable="false" class="id">${table.rows.length}</td>
+        <td contenteditable="false" class="lastName">${lastName}</td>
+        <td contenteditable="false" class="firstName">${firstName}</td>
+        <td contenteditable="false" class="gender">${gender.charAt(0).toUpperCase()}</td>
+        <td contenteditable="false" class="phone">${phone}</td>
+        <td>
+            <form method='post'  action="/editPatient">
+            <button type="submit" class="save"">Save</button>
+        </form>
+        <form method='post'  action="/editPatient">
+            <button class="edit" onclick="openeditRow()">Edit</button>
+        </form>
+            <button class="delete">Delete</button>
+        </td>
+    
+    </tr>
+
+    `;
+
+        }
+        function DeleteRow(e) {
+            if (!e.target.classList.contains("delete")) {
+                return;
+            }
+
+            const btn = e.target;
+            btn.closest("tr").remove();
+
+            //set id for each row after deleting a row
+            for (let i = 1; i < table.rows.length; i++) {
+                let x = table.rows[i].cells[0].textContent = i;
+                // x[0].innerHTML = `${i}`;
+            }
+        }
+
+        function editRow(e) {
+            if (!e.target.classList.contains("edit")) {
+                return;
+            }
+            const btn = e.target;
+            //console.log(e.target.parentNode.parentNode.rowIndex);
+
+            let rows = document.querySelector("#doctorTable tbody").rows;
+            let first = rows[e.target.parentNode.parentNode.rowIndex - 1];
+            for (let i = 1; i < 5; i++) {
+                let cell = first.cells[i];
+                cell.contentEditable = "true";
+                cell.style.backgroundColor = 'white';
+                cell.style.color = 'black';
+            }
+
+        }
+
+        function saveRow(e) {
+            if (!e.target.classList.contains("save")) {
+                return;
+            }
+            const btn = e.target;
+            //console.log(e.target.parentNode.parentNode.rowIndex);
+
+            let rows = document.querySelector("#doctorTable tbody").rows;
+            let first = rows[e.target.parentNode.parentNode.rowIndex - 1];
+            for (let i = 1; i < 7; i++) {
+                let cell = first.cells[i];
+                cell.contentEditable = "false";
+                cell.style.backgroundColor = 'transparent';
+                cell.style.color = 'white';
+            }
+
+        }
+
+        function filterTable(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#doctorTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col0 = rows[i].cells[0].textContent.toUpperCase();
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+                var col3 = rows[i].cells[3].textContent.toUpperCase();
+                var col4 = rows[i].cells[4].textContent.toUpperCase();
+                var col5 = rows[i].cells[5].textContent.toUpperCase();
+                if (col0.indexOf(filter) > -1 || col1.indexOf(filter) > -1 || col2.indexOf(filter) > -1 ||
+                    col3.indexOf(filter) > -1 || col4.indexOf(filter) > -1 || col5.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+
+            rows = document.querySelector("#workScheduleTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col0 = rows[i].cells[0].textContent.toUpperCase();
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+                var col3 = rows[i].cells[3].textContent.toUpperCase();
+                if (col0.indexOf(filter) > -1 || col1.indexOf(filter) > -1 || col2.indexOf(filter) > -1 ||
+                    col3.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    //     <input class="search" type="text" id="searchPatientLastName" name="searchLastName" placeholder="Patient Last Name" title="Type in a name">
+    // <input class="search" type="text" id="searchPatientFirstName" name="searchFirstName" placeholder="Patient First Name" title="Type in a name">
+    // <input class="search" type="text" id="searchCNP" name="searchCNP" placeholder="CNP" title="Type in a name">
+    // <input class="search" type="text" id="searchService" name="searchService" placeholder="Service" title="Type in a name">
+    // <input class="search" type="text" id="searchDate" name="searchDate" placeholder="Date" title="Type in a name">
+    // <input class="search" type="text" id="searchDoctorLastName" name="searchDoctorLastName" placeholder="Doctor Last Name" title="Type in a name">
+    // <input class="search" type="text" id="searchDoctorFirstName" name="searchDoctorName" placeholder="Doctor First Name" title="Type in a name">
+        function filterPatientLastName(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#appointmentTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+
+                if (col1.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+
+            rows = document.querySelector("#billTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col1 = rows[i].cells[1].textContent.toUpperCase();
+                if (col1.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterPatientFirstName(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#appointmentTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+
+                if (col2.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+            rows = document.querySelector("#billTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col2 = rows[i].cells[2].textContent.toUpperCase();
+                if (col2.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterDoctorLastName(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#appointmentTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col = rows[i].cells[5].textContent.toUpperCase();
+
+                if (col.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterDoctorFirstName(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#appointmentTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col = rows[i].cells[6].textContent.toUpperCase();
+
+                if (col.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+
+        }
+        function filterCNP(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#appointmentTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col3 = rows[i].cells[3].textContent.toUpperCase();
+
+                if (col3.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+            rows = document.querySelector("#billTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col3 = rows[i].cells[3].textContent.toUpperCase();
+                if (col3.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterService(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#appointmentTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col4 = rows[i].cells[4].textContent.toUpperCase();
+
+                if (col4.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+            rows = document.querySelector("#billTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col4 = rows[i].cells[4].textContent.toUpperCase();
+                if (col4.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        function filterDate(e) {
+            var filter = e.target.value.toUpperCase();
+            var rows = document.querySelector("#appointmentTable tbody").rows;
+            
+
+            for (let i = 0; i < rows.length; i++) {
+                var col = rows[i].cells[7].textContent.toUpperCase();
+
+                if (col.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+
+            rows = document.querySelector("#billTable tbody").rows;
+            for (let i = 0; i < rows.length; i++) {
+                var col = rows[i].cells[5].textContent.toUpperCase();
+                if (col.indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+        document.querySelector('#searchPatientLastName').addEventListener('keyup', filterPatientLastName, false);
+        document.querySelector('#searchPatientFirstName').addEventListener('keyup', filterPatientFirstName, false);
+        document.querySelector('#searchDoctorLastName').addEventListener('keyup', filterDoctorLastName, false);
+        document.querySelector('#searchDoctorFirstName').addEventListener('keyup', filterDoctorFirstName, false);
+        document.querySelector('#searchCNP').addEventListener('keyup', filterCNP, false);
+        document.querySelector('#searchService').addEventListener('keyup', filterService, false);
+        document.querySelector('#searchDate').addEventListener('keyup', filterDate, false);
+
+        //add listeners
+        //sadd_patient.addEventListener("submit", addDoctor);
+        //table.addEventListener("click", DeleteRow);
+        //table.addEventListener("click", editRow);
+        //table.addEventListener("click", saveRow);
+        
+// table.rows[0].cells.length - 2
+
+
+    </script>
+
+
+</body>
+
+</html>

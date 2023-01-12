@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09BA9D51-EBBA-9014-3D68-C0958E4EC15F" name="WorkSchedule">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>F29496BB-7737-2904-B37C-3C1FD5AAA419</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="WorkSchedule_ID" id="E67C3C21-0F8E-2ED3-D72D-3F53B0BA07D8">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>45B08A91-15FE-4EA0-8C9B-601A140C34EA</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="day" id="523E1963-8BDF-A6A2-B981-6EB413600203">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>FB974A50-3B79-2873-B5A1-2BA001031D91</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<constraintName>workSchedule_day_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(day, &apos;^([A-Za-z]+)$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="start_time" id="76BA3149-AC2D-C8DF-EBA0-3994DAE7164F">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>B35BF4FD-5C29-37B2-2AAB-59E9C987136A</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="end_time" id="DB2990DB-6D8E-D7C0-08F0-F8E375713CC0">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>0A97D1BF-1E0B-409E-A3A6-18CD5171F8E1</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Doctor_ID" id="9E45756C-C587-4410-82FD-092E1D75EE9C">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>B13F0BCD-5043-DB5D-A43A-E515EECA24C0</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C6671F83-6511-A4D6-A74B-E1C771AC4582" referredColumn="BA29BFBF-AFCC-150C-5A62-1DFF4885D093"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A682E2A1-009A-F275-DAA5-F36D017FC13B" name="WorkSchedule_PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>0A426021-AE2E-1E17-CEBE-DA56C7EF7026</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E67C3C21-0F8E-2ED3-D72D-3F53B0BA07D8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7D177D67-7F1B-55B9-3E4F-D1FA8D6D9489" name="WorkSchedule_Doctor_FK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>86BD49DF-C83C-3256-278F-5755B64C8F7B</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E45756C-C587-4410-82FD-092E1D75EE9C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

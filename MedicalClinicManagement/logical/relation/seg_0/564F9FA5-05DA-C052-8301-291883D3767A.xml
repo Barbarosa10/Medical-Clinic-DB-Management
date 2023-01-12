@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Patient_Appointment" directorySegmentName="seg_0" id="564F9FA5-05DA-C052-8301-291883D3767A">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:58:37 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<sourcePk>10CE3DDD-4A8F-7CAB-5424-76A3402954DF</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>C0E32B99-4566-79A8-4D3D-7B0A7BE3BF53</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>D9D9BD11-D2E0-D929-8DC7-16910C1586AA</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

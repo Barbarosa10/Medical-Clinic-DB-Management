@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F279CFF7-FE29-0386-0AB6-9A42DBF880CE" name="Appointment">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>D9D9BD11-D2E0-D929-8DC7-16910C1586AA</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Appointment_ID" id="B25B01F7-7EC1-4A85-D488-DEE44CCC7BA5">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>27AB33DB-F724-A61B-D9C8-A75B4F1F45F8</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="start_time" id="8B01CE62-205E-4349-B198-B55A16227483">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>4E95104D-ED57-2782-DD14-6CB0DC36DD66</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="end_time" id="F46CD638-95F1-AD18-AFD5-ECEA48A1E9B1">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>9EDBAD24-5E9E-949C-E856-D2846C2262FB</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Patient_ID" id="7103FB49-3953-20E7-226D-EFA16B966714">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>9EBB22A6-3F78-CFE1-9BBA-13AF2946C907</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="052EC995-1996-686B-A8EA-AEC2131E6B6D" referredColumn="ADA15267-15F4-8B9C-7C49-C67264B7BF42"/>
+</associations>
+</Column>
+<Column name="Service_ID" id="4F4ECE8A-3BAF-CA58-F172-D1E128B3E8FE">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>5C650CA5-D41D-9557-C5AD-8C6A8E765036</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E560E428-C89D-F3EA-C5CC-E1D36C3E8F6F" referredColumn="0E9DA305-20EE-AF6F-F9E1-1B3D9FC4292C"/>
+</associations>
+</Column>
+<Column name="Doctor_ID" id="D4CBD678-EC7E-0D1E-523D-F0C77935F977">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>962C1F7E-E375-1C73-DC77-6A2BED2798BE</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="636836E6-F4AE-26B5-99E2-535A5E5075B0" referredColumn="BA29BFBF-AFCC-150C-5A62-1DFF4885D093"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="93F0F467-5D9C-E8F3-66AF-0C49C9E7537E" name="Appointment_PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>4516A31F-A5B6-B5C0-A11A-5ABFA465CAE7</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B25B01F7-7EC1-4A85-D488-DEE44CCC7BA5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1148F7D0-2E00-6788-2CD1-822447D6D838" name="Appointment_Doctor_FK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>3AD64F8C-27CA-2495-FBAC-A35E86CF7918</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4CBD678-EC7E-0D1E-523D-F0C77935F977"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE9AE35E-030B-CAAA-C5B9-212CAEFA4638" name="Appointment_Patient_FK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>564F9FA5-05DA-C052-8301-291883D3767A</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7103FB49-3953-20E7-226D-EFA16B966714"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F9100C31-9DDD-3BA1-F18D-7A0657641A8E" name="Appointment_Service_FK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>C16BFACF-BE1F-E5A1-DFEF-A2B9E113AC0F</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F4ECE8A-3BAF-CA58-F172-D1E128B3E8FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

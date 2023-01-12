@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Doctor_WorkSchedule" directorySegmentName="seg_0" id="86BD49DF-C83C-3256-278F-5755B64C8F7B">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 08:59:00 UTC</createdTime>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<engineerTo>
+<item key="AFBF01D9-C56B-E7AD-9D88-36F7C26C442E" value="true"/>
+</engineerTo>
+<sourcePk>359A133D-C4C7-B795-CA11-469B77C338ED</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B64D37FE-4879-68B7-75E3-6AEADAA6DCE6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F29496BB-7737-2904-B37C-3C1FD5AAA419</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

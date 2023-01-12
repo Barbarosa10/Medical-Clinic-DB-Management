@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CDBA418C-5140-8B6B-C567-C009197F7EE6" name="Bill">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>1B038E53-3B0E-0813-BC08-D08351F7362F</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Bill_ID" id="921A587E-7950-8020-2897-8A2471A87308">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>2F9763C3-B3B2-6EE1-9D00-2E79A19C0BDA</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="total" id="7E71BCF5-A4C7-40D5-2265-1E57439CC56C">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>BF378F38-54E0-31A4-D8E1-BD08EBA50588</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Appointment_ID" id="DAC0819B-7C46-918D-0011-B47607BD414D">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>10AFC188-B895-2560-23C3-E0282FE02BF5</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E8B30749-207D-1D8A-201D-7234BCCF6FBC" referredColumn="B25B01F7-7EC1-4A85-D488-DEE44CCC7BA5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="51F9B6D8-13B4-ACF7-E675-EC007570A6B9" name="Bill_PK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>77684E41-BA11-3D8C-150B-7948891BC555</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="921A587E-7950-8020-2897-8A2471A87308"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49D939D6-7495-8231-D57F-7C51BCA19A62" name="Bill_Appointment_ID_UN">
+<createdBy>duciu</createdBy>
+<createdTime>2022-12-23 12:56:17 UTC</createdTime>
+<generatorID>056B7A2A-124A-9E15-C6D3-0F7413C245E0</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DAC0819B-7C46-918D-0011-B47607BD414D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9B8B03C1-402A-7066-C86F-FE0C3C510F97" name="Bill_Appointment_FK">
+<createdBy>duciu</createdBy>
+<createdTime>2022-11-25 09:00:45 UTC</createdTime>
+<generatorID>91788D7C-91A7-745D-E86F-9C18786F581A</generatorID>
+<ownerDesignName>MedicalClinicManagement</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DAC0819B-7C46-918D-0011-B47607BD414D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
